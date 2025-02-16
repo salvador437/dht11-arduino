@@ -1,9 +1,9 @@
 
 
-# Termometro digital Arduino-Node
+# Termometro-hidrometro DHT-11   digital Arduino-Node
 
 La aplicacion muestra un termometro digital,
-calendario y reloj digital. El termometro utiliza el sensor de temperatura LM-35.<br> 
+calendario y reloj digital. El termometro utiliza el sensor de temperatura DHT-11.<br> 
 
 La comunicación de datos del termometro es recogida desde el puerto serial(USB) y que es enviada dede arduino Uno.<br>
 
@@ -38,6 +38,8 @@ La pantalla de inicio o de entrada, es dependiente de la temperatura y está div
 
 ## vista pantalla desconexión USB arduino<br>
 
-![alt text](public/imagenes/error-puerto.PNG)
+![alt text](public/imagenes/pantalla-port-error.PNG)
 
 despues de ver esta pantalla tendra que reiniciar la aplicacion de nuevo.
+
+![alt text](public/imagenes/pantalla-error-server.PNG)
