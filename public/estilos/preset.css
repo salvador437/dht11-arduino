@@ -1,0 +1,95 @@
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(36, 35, 35);
+  height: 100%;
+  user-select: none;
+}
+
+#boton-salir {
+  position: absolute;
+  bottom: 90px;
+  color: white;
+  background-color: #444;
+  font-size: 20px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  width: 100px;
+  &:hover {
+    cursor: pointer;
+    background-color: #333;
+  }
+}
+
+.titulo {
+  background-color: hsl(0, 0%, 0%, 0.5);
+  color: white;
+  padding: 20px;
+  border: 3px solid #aaa;
+  border-radius: 25px;
+  margin-top: 5px;
+  font-size: 32px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.bd {
+  background: url("../imagenes/fondo-preset.jpg") no-repeat center center fixed;
+  justify-content: center;
+  align-items: center;
+  color: rgb(37, 37, 37);
+}
+
+.franja-frio,
+.franja-calor,
+.franja-sudor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#lbl-ff-de,
+#lbl-ff-de-value,
+#lbl-ff-a {
+  color: aqua;
+}
+
+.inputs[type="range"] {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 25px;
+  font-size: 25px;
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  color: orangered;
+  text-align: center;
+}
+
+.preset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 35px;
+  margin: 5px;
+  border: 3px solid #aaa;
+
+  border-radius: 25px;
+  background-color: hsl(0, 0%, 0%, 0.5);
+  color: orangered;
+  box-shadow: 0px 0px 25px #fff;
+  width: 80%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.monitores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./estilos/preset.css">
+  <link rel="icon" type="image/png" href="./imagenes/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>preset</title>
+</head>
+<body class="bd">
+  <div class="titulo">Preset  intervalos de temperatura</div>
+  <div class="preset">
+    
+    <div class="franja-frio">
+      <div>
+        <label id="lbl-ff-de">🥶&nbsp de:&nbsp </label>
+        <label id="lbl-ff-de-value"></label>
+        <input type="range" class="inputs" id="ff-de"  min="-9" max="0">
+    </div>
+    <div>
+      <label style="color:aqua">&nbsp a:&nbsp</label>
+      <label id="lbl-ff-a"></label>
+      <input type="range" class="inputs" id="ff-a" min="1" max="15" >
+    </div>  
+    </div>
+    
+    <div class="franja-calor">
+      <div>  
+        <label style="color:yellow">😎&nbsp de:&nbsp</label>
+        <label id="lbl-fc-de" style="color:yellow"></label>
+        <input  type="range" class="inputs" id="fc-de" min="16" max="25" >
+      </div>
+
+      <div>
+        <label style="color:yellow">&nbsp a: &nbsp</label>
+        <label id="lbl-fc-a"style="color:yellow" ></label>
+        <input style="color:yellow" type="range" class="inputs" id="fc-a" min="26" max="30">
+      </div>
+      
+    </div>
+    
+    <div class="franja-sudor">
+      <div>
+        <label for="preset"> 🥵&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp >&nbsp&nbsp de: &nbsp</label>
+        <label id="lbl-mayor-de"></label>
+        <input type="range" class="inputs" id="fs-mayor-de" min="30" value="30" max="45" style="width: 90%;">
+      </div>
+    </div>
+    <button  id="boton-salir">Salir</button>
+  </div>
+<script  src="./preset.js" defer></script>
+</body>
+</html>

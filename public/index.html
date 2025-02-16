@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="./imagenes/favicon.png">
+    <link rel="stylesheet" href="/estilos/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap">
+    <title>DHT-11 con node JS</title>
+  </head>
+  <body  style="background-color: #020630; color: orangered;">
+    <button  id="boton-preset">Configuración</button>
+    <button id="reconnect-btn">Reconectar Arduino</button>
+    <p id="status">Estado: Desconectado</p>
+    
+    <div class="container">
+      <p class="titulo">Sensor de temp-humedad DHT-11</p> 
+      <p id="reloj"></p>
+      <div class="card">
+        <h1 id="temperature">Server &nbsp closed &nbsp 💻😥</h1>
+      </div>
+    </div>
+    
+    <script src="socket.io/socket.io.js" ></script>
+    <script  src="main.js" defer></script>
+  </body>
+</html>
