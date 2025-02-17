@@ -16,6 +16,7 @@ let fcA = parseInt(localStorage.getItem("fcA"));
 let fsMayorDe = parseInt(localStorage.getItem("fsMayorDe"));
 let pote = localStorage.getItem("pote");
 
+
 window.addEventListener("beforeunload", function (event) {
   navigator.sendBeacon("/close-server");
 });
