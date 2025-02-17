@@ -19,6 +19,7 @@ let cont = 0;
 let port;
 let parser;
 
+
 const setupSerialPort = () => {
   try {
     // Cerrar el puerto serial si ya está abierto
@@ -66,9 +67,6 @@ const setupSerialPort = () => {
       const temp = `${data.substring(0,2)}`;
       const hum = `${data.substring(2,4)}`;
       const temphum = `${temp} ${hum}`
-      
-      
-
       io.emit("temp", temphum.toString());
 
       if (fs.existsSync("./temp-humedad.txt")) {
@@ -155,6 +153,14 @@ app.use((err, req, res, next) => {
 // Middleware para manejar rutas no encontradas y redirigir a error404.html
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, "public", "error404.html"));
+});
+
+app.post("/close-server", (req, res) => {
+  res.sendStatus(200);
+  server.close(() => {
+    console.log("Servidor cerrado");
+    process.exit(0);
+  });
 });
 
 // Iniciar el servidor

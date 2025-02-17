@@ -6,12 +6,42 @@ const fondo = document.getElementsByTagName("body")[0];
 const titulo = document.querySelector(".container p");
 const reloj = document.getElementById("reloj");
 const statusElement = document.getElementById("status");
+const consigna = document.getElementsByClassName("consigna");
+const lblConsigna = document.getElementsByClassName("lbl-consigna");
 
 let ffDe = parseInt(localStorage.getItem("ffDe"));
 let ffA = parseInt(localStorage.getItem("ffA"));
 let fcDe = parseInt(localStorage.getItem("fcDe"));
 let fcA = parseInt(localStorage.getItem("fcA"));
 let fsMayorDe = parseInt(localStorage.getItem("fsMayorDe"));
+let pote = localStorage.getItem("pote");
+
+window.addEventListener("beforeunload", function (event) {
+  navigator.sendBeacon("/close-server");
+});
+
+pote = pote.substring(6, 8);
+pote = parseInt(pote);
+
+Array.from(consigna).forEach((element, index) => {
+  let pote = localStorage.getItem("pote");
+  if (pote) {
+    pote = parseInt(pote.substring(6, 8));
+    element.value = pote;
+    lblConsigna[index].textContent = "Color " + pote + " %" ;
+  }
+
+  element.addEventListener("input", () => {
+    lblConsigna[index].textContent = "Color " + element.value + " %";
+    localStorage.setItem("pote", lblConsigna[index].textContent);
+    ajustarSaturacion(element.value);
+  });
+});
+
+function ajustarSaturacion(valor) {
+  const saturacion = valor/100 ; // Convertir el valor a un rango de 0% a 100%
+  fondo.style.filter = `saturate(${saturacion})`;
+}
 
 if (reconnectButton) {
   reconnectButton.style.display = "flex";
@@ -53,17 +83,14 @@ function mostrarError() {
 
 // Actualización de la temperatura
 socket.on("temp", (data) => {
-console.log("desde main data",data)
-console.log("desde main temp",data.substring(0,2))
-console.log("desde main hum",data.substring(2,5))
-  const temperatura = parseInt(data.substring(0,2));
-  const hum = `${parseInt(data.substring(2,5))}`;
+  const temperatura = parseInt(data.substring(0, 2));
+  const hum = `${parseInt(data.substring(2, 5))}`;
 
-  temperatureDisplay.innerHTML = ` ${temperatura} °C   ${hum}%`;
+  temperatureDisplay.innerHTML = `🌡️ ${temperatura} °C   ${hum}% 💧` ;
   reconnectButton.style.display = "none";
   statusElement.textContent = "Estado: Conectado";
   statusElement.style.color = "white";
-  if (temperatura > 30 && temperatura < 40) {
+  if (temperatura > 30 && temperatura < 45) {
     actualizarEstilos("red", "url('./imagenes/calor-extremo.jpg')", "🔥");
   } else if (temperatura > fcA && temperatura < fsMayorDe) {
     actualizarEstilos("orangered", "url('./imagenes/fondo-calor.jpg')", "🥵");
@@ -81,7 +108,6 @@ function actualizarEstilos(color, imagen, emoji) {
   titulo.style.color = color;
   reloj.style.color = color;
   temperatureDisplay.style.border = `2px solid ${color}`;
-  temperatureDisplay.innerHTML = ` ${temperatura} °C  "  " ${hum}H%}  ${emoji}`;
 }
 
 // Función para actualizar el reloj
