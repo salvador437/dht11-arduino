@@ -87,7 +87,7 @@ socket.on("temp", (data) => {
   const temperatura = parseInt(data.substring(0, 2));
   const hum = `${parseInt(data.substring(2, 5))}`;
 
-  temperatureDisplay.innerHTML = `🌡️ ${temperatura} °C   ${hum}% 💧` ;
+  temperatureDisplay.innerHTML = `🌡️ ${temperatura} °C    💧 ${hum}% ` ;
   reconnectButton.style.display = "none";
   statusElement.textContent = "Estado: Conectado";
   statusElement.style.color = "white";
